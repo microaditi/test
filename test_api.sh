@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-IMAGE_NAME="flask-app:test"
-CONTAINER_NAME="flask-test"
+IMAGE_NAME="microaditi/test:latest"
+CONTAINER_NAME="test-app"
 
 # Start container in detached mode
 docker run -d --rm --name $CONTAINER_NAME -p 5000:5000 $IMAGE_NAME
