@@ -13,11 +13,6 @@ pipeline{
             }
         }
         
-        // stage('Building the Docker Image Locally'){
-        //     steps{
-        //         sh 'docker build -t ${DOCKER_IMAGE} .'
-        //     }
-        // }
         
         stage('Build Docker Image') {
             steps {
@@ -39,11 +34,13 @@ pipeline{
         }
     }
     
-        stage('Running Automated Test'){
-            steps{
-                echo 'tests'
+        stage('Run Tests') {
+            steps {
+                sh 'chmod +x test_api.sh'
+                sh './test_api.sh'
             }
         }
+
         
         stage('Deploy to K8s'){
             steps {
